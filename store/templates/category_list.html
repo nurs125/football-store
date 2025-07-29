@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Категории</title>
+    <style>
+        /* Вставь сюда CSS из предыдущего шага */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #f5f8fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        ul {
+            width: 100%;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 0;
+            margin: 0 auto 30px auto;
+            list-style-type: none;
+        }
+        ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ecf0f1;
+            transition: background-color 0.2s ease;
+        }
+        ul li:hover {
+            background-color: #d6eaf8;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #1c5980;
+        }
+        .empty {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Категории товаров</h1>
+    {% if categories %}
+    <ul>
+        {% for category in categories %}
+        <li><a href="/category/{{ category.id }}/">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty">Категории не найдены.</div>
+    {% endif %}
+</body>
+</html>
